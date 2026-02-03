@@ -2,15 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/indexpage', function () {
-    $students = [
-        ['name' => 'unk', 'course' => 'BSIT', 'year_level' => 4],
-        ['name' => 'Juan Dela Cruz', 'course' => 'BSIT', 'year_level' => 3],
-        ['name' => 'Maria Santos', 'course' => 'BSCS', 'year_level' => 2],
-        ['name' => 'Pedro Reyes', 'course' => 'BSIS', 'year_level' => 1],
-    ];
+use App\Http\Controllers\StudentController;
 
-    return view('students.index', compact('students'));
+
+
+Route::get('/students', [StudentController::class, 'index'])->name('students.index');  // ✅
+Route::get('/students/{id}', [StudentController::class, 'show'])->name('students.show'); // single student
+
+Route::get('/indexpage', function () {
+    return redirect()->route('students.index');
 });
 
 // Show single student

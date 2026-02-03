@@ -6,7 +6,7 @@
 
 <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
     <h1>Student List</h1>
-    <a href="/addstudent">
+    <a href="">
         <button style="
             padding:8px 14px;
             background-color:#3498db;
@@ -28,21 +28,19 @@
         </tr>
     </thead>
     <tbody>
-    @foreach ($students as $student)
+        @foreach ($students as $student)
         <tr>
-            <td style="padding:10px;">{{ $student['name'] }}</td>
-            <td style="padding:10px;">{{ $student['course'] }}</td>
-            <td style="padding:10px;">{{ $student['year_level'] }}</td>
+            <td style="padding:10px;">{{ $student->name }}</td>
+            <td style="padding:10px;">{{ $student->course }}</td>
+            <td style="padding:10px;">{{ $student->year_level }}</td>
             <td style="padding:10px;">
-                {{-- Include the reusable action buttons component --}}
-                <x-student-actions :id="$loop->index" />
-                <x-student-status :student="$student" :id="$loop->index" />
+                {{-- Reusable action buttons component --}}
+                <x-student-actions :id="$student->id" />
+                <x-student-status :student="$student" />
             </td>
         </tr>
-    @endforeach
-    
-</tbody>
-
+        @endforeach
+    </tbody>
 </table>
 
 @endsection

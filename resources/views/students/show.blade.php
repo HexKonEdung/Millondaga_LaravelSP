@@ -9,15 +9,15 @@
 <table style="width:50%; border-collapse: collapse; margin-top:20px;">
     <tr>
         <th style="border-bottom:2px solid #ccc; padding:10px;">Name</th>
-        <td style="padding:10px;">{{ $student['name'] }}</td>
+        <td style="padding:10px;">{{ $student->name }}</td>
     </tr>
     <tr>
         <th style="border-bottom:2px solid #ccc; padding:10px;">Course</th>
-        <td style="padding:10px;">{{ $student['course'] }}</td>
+        <td style="padding:10px;">{{ $student->course }}</td>
     </tr>
     <tr>
         <th style="border-bottom:2px solid #ccc; padding:10px;">Year Level</th>
-        <td style="padding:10px;">{{ $student['year_level'] }}</td>
+        <td style="padding:10px;">{{ $student->year_level }}</td>
     </tr>
 </table>
 
